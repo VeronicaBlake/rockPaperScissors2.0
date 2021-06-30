@@ -30,15 +30,26 @@ function drawButtons(){
 
 function player(choiceName){
     let choice = choices[choiceName]
+    //choiceName comes from the button that's clicked, assigned in drawButton
     choiceName = choiceName[0].toUpperCase() + choiceName.substr(1)
-    console.log(choice)
     document.getElementById("player-output").innerText = `You Chose: ${choiceName}`
+    outcome(choice)
+    //it's choice because we have it assigned to the way to access it from the dictionary on line 32
 }
 
 function computer(){
     let options = Object.keys(choices)
     let randIndex = Math.floor(Math.random() * (options.length))
-    console.log(options[randIndex])
+    compChoice = (options[randIndex])
+    document.getElementById("computer-output").innerText = `Your Opponent Chose: ${compChoice}`
+    return compChoice 
 }
+
+function outcome(playerChoice){
+    let computerChoice = computer()
+    console.log(computerChoice)
+    console.log('playerChoice', playerChoice)
+}
+
 
 drawButtons();
