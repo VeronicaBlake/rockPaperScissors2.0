@@ -37,7 +37,7 @@ function player(choiceName){
 
 function computer(){
     let options = Object.keys(choices)
-    let randIndex = Math.floor(Math.random() * (choices.length))
+    let randIndex = Math.floor(Math.random() * (options.length))
     console.log(options[randIndex])
 }
 
