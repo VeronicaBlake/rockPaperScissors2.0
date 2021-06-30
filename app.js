@@ -47,8 +47,14 @@ function computer(){
 
 function outcome(playerChoice){
     let computerChoice = computer()
-    console.log(computerChoice)
-    console.log('playerChoice', playerChoice)
+    if(playerChoice.ties == computerChoice){
+        document.getElementById("result-output").innerText = `It's a tie!`
+    }else if(playerChoice.beats == computerChoice){
+        document.getElementById("result-output").innerText = `You Win!`
+    }else {
+        document.getElementById("result-output").innerText = `You Lose!`
+    }
+
 }
 
 
