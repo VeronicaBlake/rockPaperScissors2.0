@@ -1,21 +1,33 @@
 let choices = {
     rock: {
-        beats: 'scissors',
-        loses: 'paper',
+        beats: ['scissors', 'lizard'],
+        loses: ['paper', 'Spock'],
         ties: 'rock',
         btnClass: 'btn-dark'
     },
     paper: {
-        beats: 'rock',
-        loses: 'scissors',
+        beats: ['rock', 'Spock'],
+        loses: ['scissors', 'lizard'],
         ties: 'paper',
         btnClass: 'btn-warning'
     },
     scissors: {
-        beats: 'paper',
-        loses: 'rock',
+        beats: ['paper', 'lizard'],
+        loses: ['rock', 'Spock'],
         ties: 'scissors',
         btnClass: 'btn-danger'
+    },
+    lizard: {
+        beats: ['paper', 'Spock'],
+        loses: ['rock', 'scissors'],
+        ties: 'lizard',
+        btnClass: 'btn-success'
+    },
+     Spock: {
+        beats: ['rock', 'scissors'],
+        loses: ['lizard', 'paper'],
+        ties: 'Spock',
+        btnClass: 'btn-primary'
     }
 }
 
@@ -49,13 +61,15 @@ function outcome(playerChoice){
     let computerChoice = computer()
     if(playerChoice.ties == computerChoice){
         document.getElementById("result-output").innerText = `It's a tie!`
-    }else if(playerChoice.beats == computerChoice){
+    }else if(playerChoice.beats.includes(computerChoice)){
         document.getElementById("result-output").innerText = `You Win!`
-    }else {
+    }else if(playerChoice.loses.includes(computerChoice)){
         document.getElementById("result-output").innerText = `You Lose!`
+    }
+    else{
+        document.getElementById("result-output").innerText = `Something went wrong`
     }
 
 }
-
 
 drawButtons();
